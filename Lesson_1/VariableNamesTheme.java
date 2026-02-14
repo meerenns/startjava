@@ -145,8 +145,8 @@ public class VariableNamesTheme {
         System.out.println("Новый? = " + isNew);
 
         // Электронная почта действительная?
-        boolean isEmailValid = true;
-        System.out.println("Электронная почта действительная? = " + isEmailValid);
+        boolean isValidEmail = true;
+        System.out.println("Электронная почта действительная? = " + isValidEmail);
 
         // Имеются уникальные строки?
         boolean hasUniqueStrings = true;
