@@ -117,8 +117,8 @@ public class VariableNamesTheme {
         System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
 
         // Сотни равны?
-        boolean isHundredsEqual = true;
-        System.out.println("Сотни равны? = " + isHundredsEqual);
+        boolean isEqualHundreds = true;
+        System.out.println("Сотни равны? = " + isEqualHundreds);
 
         // Компьютер включен?
         boolean isComputerOn = true;
@@ -129,16 +129,16 @@ public class VariableNamesTheme {
         System.out.println("Есть равные цифры? = " + hasEqualDigits);
 
         // Служба создана?
-        boolean isServiceCreated = false;
-        System.out.println("Служба создана? = " + isServiceCreated);
+        boolean isCreatedService = false;
+        System.out.println("Служба создана? = " + isCreatedService);
 
         // Файл пустой?
-        boolean isFileEmpty = false;
-        System.out.println("Файл пустой? = " + isFileEmpty);
+        boolean isEmptyFile = false;
+        System.out.println("Файл пустой? = " + isEmptyFile);
 
         // Соединение активное?
-        boolean isConnectionActive = true;
-        System.out.println("Соединение активное? = " + isConnectionActive);
+        boolean isActiveConnection = true;
+        System.out.println("Соединение активное? = " + isActiveConnection);
 
         // Новый?
         boolean isNew = true;
