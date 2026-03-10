@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 public class VariablesTheme {
     public static void main(String[] args) {
-        long start = System.nanoTime();
-        LocalTime startTime = LocalTime.now();
+        final long start = System.nanoTime();
+        final LocalTime startTime = LocalTime.now();
 
         System.out.println("\n1. ВЫВОД ASCII-ГРАФИКИ\n");
 
@@ -109,7 +109,7 @@ public class VariablesTheme {
                   тип упаковки - %d
                 Контрольная сумма = %d
                 Проверочный код = %d
-                    """, productCode, productCategory, subcategory, packageType, checksum, verificationCode);
+                """, productCode, productCategory, subcategory, packageType, checksum, verificationCode);
 
         System.out.println("\n6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ\n");
 
@@ -119,50 +119,50 @@ public class VariablesTheme {
                     Исходное: %d
                     +1: %d
                     -1: %d
-                        """,
-                    temperature,
-                    ++temperature,
-                    --temperature);
+                """,
+                temperature,
+                ++temperature,
+                --temperature);
         short pressure = Short.MAX_VALUE;
         System.out.printf("""
                 [Давление, Па]:
                     Исходное: %d
                     +1: %d
                     -1: %d
-                        """,
-                    pressure,
-                    ++pressure,
-                    --pressure);
+                """,
+                pressure,
+                ++pressure,
+                --pressure);
         char systemStatusCode = Character.MAX_VALUE;
         System.out.printf("""
                 [Код состояния системы]:
                     Исходное: %d
                     +1: %d
                     -1: %d
-                        """,
-                    (int) systemStatusCode,
-                    (int) ++systemStatusCode,
-                    (int) --systemStatusCode);
+                """,
+                (int) systemStatusCode,
+                (int) ++systemStatusCode,
+                (int) --systemStatusCode);
         int travelDistance = Integer.MAX_VALUE;
         System.out.printf("""
                 [Пройденное расстояние, км]:
                     Исходное: %d
                     +1: %d
                     -1: %d
-                        """,
-                    travelDistance,
-                    ++travelDistance,
-                    --travelDistance);
+                """,
+                travelDistance,
+                ++travelDistance,
+                --travelDistance);
         long launchTime = Long.MAX_VALUE;
         System.out.printf("""
                 [время с момента старта, с]:
                     Исходное: %d
                     +1: %d
                     -1: %d
-                        """,
-                    launchTime,
-                    ++launchTime,
-                    --launchTime);
+                """,
+                launchTime,
+                ++launchTime,
+                --launchTime);
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС\n");
 
@@ -182,12 +182,12 @@ public class VariablesTheme {
                 Свободная память: %.1f Мб
                 Используемая память: %.1f Мб
                 Максимально доступная для выделения память: %.1f Мб %n
-                    """,
-                    rt.availableProcessors(),
-                    totalMemory,
-                    freeMemory,
-                    usedMemory,
-                    maxMemory
+                """,
+                rt.availableProcessors(),
+                totalMemory,
+                freeMemory,
+                usedMemory,
+                maxMemory
         );
 
         System.out.printf("""
@@ -196,11 +196,11 @@ public class VariablesTheme {
                 Версия ОС: %s
                 Версия Java: %s
                 Символ разделения пути (сепаратор): %s
-                    """,
-                    System.getProperty("user.dir").substring(0, 1),
-                    System.getProperty("os.version"),
-                    System.getProperty("java.version"),
-                    System.getProperty("file.separator")
+                """,
+                System.getProperty("user.dir").substring(0, 1),
+                System.getProperty("os.version"),
+                System.getProperty("java.version"),
+                System.getProperty("file.separator")
         );
 
         System.out.println("\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА\n");
@@ -219,10 +219,10 @@ public class VariablesTheme {
                 | Финиш проверки | %s |
                 +----------------+-------------+
                 | Время работы   | %.3f сек    |
-                    """,
-                    startTime.format(formatter),
-                    finishTime.format(formatter),
-                    seconds
+                """,
+                startTime.format(formatter),
+                finishTime.format(formatter),
+                seconds
         );
     }
 }
