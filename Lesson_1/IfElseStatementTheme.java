@@ -6,8 +6,6 @@ public class IfElseStatementTheme {
         System.out.println("\n1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA\n");
 
         boolean male = true;
-        int age = 22;
-        double height = 1.65;
 
         if (!male) {
             System.out.println("К сожалению, вакансия открыта только для мужчин.");
@@ -15,11 +13,15 @@ public class IfElseStatementTheme {
             System.out.println("Пол соответствует требованиям вакансии.");
         }
 
+        int age = 22;
+
         if (age > 18) {
             System.out.println("Возраст подходит для трудоустройства.");
         } else {
             System.out.println("Вы слишком молоды для этой работы.");
         }
+
+        double height = 1.65;
 
         if (height < 1.8) {
             System.out.println("Рост не соответствует требованиям.");
@@ -98,7 +100,7 @@ public class IfElseStatementTheme {
         if (dbSerialNumber == pcSerialNumber) {
             int floor = pcSerialNumber / 100;
             int room = pcSerialNumber % 100;
-            
+
             System.out.println("[№" + pcSerialNumber +
                     "]: компьютер на " + floor +
                     "-м этаже в кабинете " + room);
@@ -129,14 +131,12 @@ public class IfElseStatementTheme {
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %\n");
 
         float deposit = 321123.79f;
-        float rate;
+        float rate = 0.10f;
 
         if (deposit < 100000) {
             rate = 0.05f;
         } else if (deposit <= 300000) {
             rate = 0.07f;
-        } else {
-            rate = 0.10f;
         }
 
         float interest = deposit * rate;
@@ -147,14 +147,12 @@ public class IfElseStatementTheme {
         System.out.println("Итоговая сумма c %: " + total + " руб.\n");
 
         BigDecimal depositBd = BigDecimal.valueOf(321123.79);
-        BigDecimal rateBd;
+        BigDecimal rateBd = BigDecimal.valueOf(0.10);
 
         if (depositBd.compareTo(BigDecimal.valueOf(100000)) < 0) {
             rateBd = BigDecimal.valueOf(0.05);
         } else if (depositBd.compareTo(BigDecimal.valueOf(300000)) <= 0) {
             rateBd = BigDecimal.valueOf(0.07);
-        } else {
-            rateBd = BigDecimal.valueOf(0.10);
         }
 
         BigDecimal interestBd = depositBd.multiply(rateBd).setScale(2, RoundingMode.HALF_UP);
@@ -167,10 +165,7 @@ public class IfElseStatementTheme {
         System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ\n");
 
         int historyPercent = 59;
-        int programmingPercent = 92;
-
-        int historyGrade;
-        int programmingGrade;
+        int historyGrade = 5;
 
         if (historyPercent <= 60) {
             historyGrade = 2;
@@ -178,9 +173,10 @@ public class IfElseStatementTheme {
             historyGrade = 3;
         } else if (historyPercent <= 91) {
             historyGrade = 4;
-        } else {
-            historyGrade = 5;
         }
+
+        int programmingPercent = 92;
+        int programmingGrade = 5;
 
         if (programmingPercent <= 60) {
             programmingGrade = 2;
@@ -188,8 +184,6 @@ public class IfElseStatementTheme {
             programmingGrade = 3;
         } else if (programmingPercent <= 91) {
             programmingGrade = 4;
-        } else {
-            programmingGrade = 5;
         }
 
         System.out.println("История: " + historyGrade);
@@ -207,16 +201,14 @@ public class IfElseStatementTheme {
         BigDecimal rentCost = BigDecimal.valueOf(5123.018);
         BigDecimal productionCost = BigDecimal.valueOf(9001.729);
 
-        BigDecimal monthlyProfit = sales
+        BigDecimal annualProfit = sales
                 .subtract(rentCost)
-                .subtract(productionCost);
-
-        BigDecimal annualProfit = monthlyProfit
+                .subtract(productionCost)
                 .multiply(BigDecimal.valueOf(12))
                 .setScale(2, RoundingMode.HALF_UP);
 
         String sign = "";
-        if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
+        if (annualProfit.signum() > 0) {
             sign = "+";
         }
 
