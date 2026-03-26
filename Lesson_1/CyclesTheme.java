@@ -4,15 +4,15 @@ public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n1. ВЫВОД ASCII-СИМВОЛОВ\n");
 
-        System.out.printf("%-10s %-10s %s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
-        for (int i = 33; i <= 47; i++) {
-            if (i % 2 != 0) {
-                System.out.printf("%-10d %-10c %s%n", i, (char) i, Character.getName(i));
-            }
-        }
-        for (int i = 97; i <= 122; i++) {
-            if (i % 2 == 0) {
-                System.out.printf("%-10d %-10c %s%n", i, (char) i, Character.getName(i));
+        System.out.printf("%s   %s   %s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
+
+        for (int i = 33; i <= 122; i++) {
+            if ((i <= 47 && i % 2 != 0) || (i >= 97 && i <= 122 && i % 2 == 0)) {
+                System.out.printf("%4d%11c%12s%-10s%n",
+                        i,
+                        (char) i,
+                        "",
+                        Character.getName(i));
             }
         }
 
@@ -36,8 +36,7 @@ public class CyclesTheme {
         for (int i = 2; i <= 9; i++) {
             System.out.printf("%3d", i);
         }
-        System.out.println();
-        System.out.println("--+------------------------");
+        System.out.println("\n--+------------------------");
         for (int i = 2; i <= 9; i++) {
             System.out.printf("%1d |", i);
             for (int j = 2; j <= 9; j++) {
@@ -49,20 +48,24 @@ public class CyclesTheme {
         System.out.println("\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК\n");
 
         int number = 1;
+        int count = 0;
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (number < 24) {
-                    System.out.printf("%4d", number);
-                    number += 2;
-                } else {
-                    System.out.printf("%4d", 0);
-                }
+        while (number < 24) {
+            System.out.printf("%4d", number);
+            number += 2;
+            count++;
+
+            if (count % 5 == 0) {
+                System.out.println();
             }
-            System.out.println();
         }
 
-        System.out.println("\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX\n");
+        while (count % 5 != 0) {
+            System.out.printf("%4d", 0);
+            count++;
+        }
+
+        System.out.println("\n\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX\n");
 
         int firstNumber = 10;
         int secondNumber = 5;
@@ -93,20 +96,20 @@ public class CyclesTheme {
         System.out.println("\n\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ\n");
 
         int initialNumber = 2234321;
-        int workingNumber = initialNumber;
+        int currentNumber = initialNumber;
 
         int reversedNumber = 0;
         int countOfTwos = 0;
 
-        while (workingNumber > 0) {
-            int digit = workingNumber % 10;
+        while (currentNumber > 0) {
+            int digit = currentNumber % 10;
 
             if (digit == 2) {
                 countOfTwos++;
             }
 
             reversedNumber = reversedNumber * 10 + digit;
-            workingNumber /= 10;
+            currentNumber /= 10;
         }
 
         System.out.printf("%d - %sпалиндром с %s (%d) количеством двоек%n",
@@ -118,7 +121,7 @@ public class CyclesTheme {
         System.out.println("\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА\n");
 
         int originalNumber = 101002;
-        int currentNumber = originalNumber;
+        currentNumber = originalNumber;
 
         int rightSum = 0;
         int leftSum = 0;
@@ -144,6 +147,8 @@ public class CyclesTheme {
 
         Random random = new Random();
 
+        int length = random.nextInt(6, 13);
+
         boolean hasUpper = false;
         boolean hasLower = false;
         boolean hasDigit = false;
@@ -151,21 +156,16 @@ public class CyclesTheme {
 
         System.out.print("Пароль: ");
 
-        for (int i = 0; i < 8; i++) {
-            int type = random.nextInt(4);
-            char symbol;
+        for (int i = 0; i < length; i++) {
+            char symbol = (char) random.nextInt(33, 123);
 
-            if (type == 0) {
-                symbol = (char) random.nextInt(97, 123);
+            if (symbol >= 'a' && symbol <= 'z') {
                 hasLower = true;
-            } else if (type == 1) {
-                symbol = (char) random.nextInt(65, 91);
+            } else if (symbol >= 'A' && symbol <= 'Z') {
                 hasUpper = true;
-            } else if (type == 2) {
-                symbol = (char) random.nextInt(48, 58);
+            } else if (symbol >= '0' && symbol <= '9') {
                 hasDigit = true;
             } else {
-                symbol = (char) random.nextInt(33, 48);
                 hasSpecial = true;
             }
 
@@ -174,9 +174,9 @@ public class CyclesTheme {
 
         System.out.print("\nНадежность: ");
 
-        if (hasLower && hasUpper && hasSpecial) {
+        if (length >= 8 && hasLower && hasUpper && hasSpecial) {
             System.out.println("Надежный");
-        } else if (hasUpper || hasDigit) {
+        } else if (length >= 8 && (hasUpper || hasDigit)) {
             System.out.println("Средний");
         } else {
             System.out.println("Слабый");
