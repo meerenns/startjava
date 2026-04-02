@@ -120,28 +120,29 @@ public class CyclesTheme {
 
         System.out.println("\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА\n");
 
-        int originalNumber = 101002;
-        currentNumber = originalNumber;
+        currentNumber = initialNumber;
 
         int rightSum = 0;
         int leftSum = 0;
 
-        for (int i = 0; i < 3; i++) {
-            rightSum += currentNumber % 10;
-            currentNumber /= 10;
-        }
+        for (int i = 0; i < 6; i++) {
+            int digit = currentNumber % 10;
 
-        for (int i = 0; i < 3; i++) {
-            leftSum += currentNumber % 10;
+            if (i < 3) {
+                rightSum += digit;
+            } else {
+                leftSum += digit;
+            }
+
             currentNumber /= 10;
         }
 
         System.out.printf("%d - %sсчастливое число%n",
-                originalNumber,
+                initialNumber,
                 leftSum == rightSum ? "" : "не ");
 
-        System.out.printf("Сумма цифр %03d = %d%n", originalNumber % 1000, rightSum);
-        System.out.printf("Сумма цифр %03d = %d%n", originalNumber / 1000, leftSum);
+        System.out.printf("Сумма цифр %03d = %d%n", initialNumber % 1000, rightSum);
+        System.out.printf("Сумма цифр %03d = %d%n", initialNumber / 1000, leftSum);
 
         System.out.println("\n8. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ\n");
 
