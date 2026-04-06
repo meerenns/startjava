@@ -2,25 +2,25 @@ public class Calculator {
     public static void main(String[] args) {
         int a = 2;
         int b = 10;
-        char op = '^';
+        char operator = '^';
         int result = 0;
 
-        if (op == '+') {
+        if (operator == '+') {
             result = a + b;
-        } else if (op == '-') {
+        } else if (operator == '-') {
             result = a - b;
-        } else if (op == '*') {
+        } else if (operator == '*') {
             result = a * b;
-        } else if (op == '/') {
+        } else if (operator == '/') {
             result = a / b;
-        } else if (op == '%') {
+        } else if (operator == '%') {
             result = a % b;
-        } else if (op == '^') {
+        } else if (operator == '^') {
             result = 1;
             for (int i = 0; i < b; i++) {
                 result *= a;
             }
         }
-        System.out.printf("%d %c %d = %d%n", a, op, b, result);
+        System.out.printf("%d %c %d = %d%n", a, operator, b, result);
     }
 }
