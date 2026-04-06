@@ -120,6 +120,7 @@ public class CyclesTheme {
 
         System.out.println("\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА\n");
 
+        initialNumber = 101002;
         currentNumber = initialNumber;
 
         int rightSum = 0;
@@ -160,11 +161,11 @@ public class CyclesTheme {
         for (int i = 0; i < length; i++) {
             char symbol = (char) random.nextInt(33, 123);
 
-            if (symbol >= 'a' && symbol <= 'z') {
+            if (Character.isLowerCase(symbol)) {
                 hasLower = true;
-            } else if (symbol >= 'A' && symbol <= 'Z') {
+            } else if (Character.isUpperCase(symbol)) {
                 hasUpper = true;
-            } else if (symbol >= '0' && symbol <= '9') {
+            } else if (Character.isDigit(symbol)) {
                 hasDigit = true;
             } else {
                 hasSpecial = true;
