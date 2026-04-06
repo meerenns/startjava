@@ -1,11 +1,12 @@
 package ru.topjava.lesson1;
+
 import java.util.Random;
 
 public class RpsGameFormatting {
     // Игра Камень-Ножницы-Бумага
     public static void main(String[] args) throws InterruptedException {
         String rock = "✊";
-        String scissors = "✌\uFE0F";
+        String scissors = "✌";
         String paper = "✋";
 
         // Ход первого игрока
