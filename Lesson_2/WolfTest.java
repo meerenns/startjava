@@ -4,15 +4,15 @@ public class WolfTest {
 
         wolf.setGender("Male");
         wolf.setName("Akela");
+        wolf.setColor("Gray");
         wolf.setWeight(45.7);
         wolf.setAge(4);
-        wolf.setColor("Gray");
 
         System.out.println("Пол: " + wolf.getGender());
         System.out.println("Кличка: " + wolf.getName());
+        System.out.println("Окрас: " + wolf.getColor());
         System.out.println("Вес: " + wolf.getWeight());
         System.out.println("Возраст: " + wolf.getAge());
-        System.out.println("Окрас: " + wolf.getColor());
 
         wolf.walk();
         wolf.sit();

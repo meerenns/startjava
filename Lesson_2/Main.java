@@ -5,36 +5,36 @@ public class Main {
         printBooleanMethods();
     }
 
-    public static void printNonBooleanMethods() {
-        NonBooleanMethods nonBooleanMethods = new NonBooleanMethods();
+    private static void printNonBooleanMethods() {
+        NonBooleanMethods nbm = new NonBooleanMethods();
 
-        nonBooleanMethods.findLongestWord();
-        nonBooleanMethods.selectMenuItem();
-        nonBooleanMethods.calculateAverageGrade();
-        nonBooleanMethods.countUniqueWords();
-        nonBooleanMethods.showErrorMessage();
-        nonBooleanMethods.syncCloudData();
-        nonBooleanMethods.restoreBackup();
-        nonBooleanMethods.pauseDownload();
-        nonBooleanMethods.resetSettings();
-        nonBooleanMethods.writeToFile();
-        nonBooleanMethods.convertTemperature();
-        nonBooleanMethods.inputMathExpression();
-        nonBooleanMethods.findGameWinner();
-        nonBooleanMethods.findBookByAuthor();
+        nbm.findLongestWord();
+        nbm.selectMenuItem();
+        nbm.calculateAverageGrade();
+        nbm.countUniqueWords();
+        nbm.showErrorMessage();
+        nbm.syncCloudData();
+        nbm.restoreBackup();
+        nbm.pauseDownload();
+        nbm.resetSettings();
+        nbm.writeToFile();
+        nbm.convertTemperature();
+        nbm.inputMathExpression();
+        nbm.findGameWinner();
+        nbm.findBookByAuthor();
     }
 
-    public static void printBooleanMethods() {
-        BooleanMethods booleanMethods = new BooleanMethods();
+    private static void printBooleanMethods() {
+        BooleanMethods bm = new BooleanMethods();
 
-        System.out.println(booleanMethods.isRunningProgram());
-        System.out.println(booleanMethods.hasUniqueDigit());
-        System.out.println(booleanMethods.isInputLetter());
-        System.out.println(booleanMethods.hasEqualDigits());
-        System.out.println(booleanMethods.hasGameLives());
-        System.out.println(booleanMethods.isEmptyString());
-        System.out.println(booleanMethods.isEvenDice());
-        System.out.println(booleanMethods.isValidPath());
-        System.out.println(booleanMethods.isExistFile());
+        System.out.println(bm.isRunningProgram());
+        System.out.println(bm.hasUniqueDigit());
+        System.out.println(bm.isInputLetter());
+        System.out.println(bm.hasEqualDigits());
+        System.out.println(bm.hasGameLives());
+        System.out.println(bm.isEmptyString());
+        System.out.println(bm.isEvenDice());
+        System.out.println(bm.isValidPath());
+        System.out.println(bm.isExistFile());
     }
 }
