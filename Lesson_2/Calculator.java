@@ -1,49 +1,40 @@
 public class Calculator {
     public double calculate(int a, char operator, int b) {
-        double result = 0;
-
         switch (operator) {
             case '+':
-                result = a + b;
-                break;
+                return a + b;
             case '-':
-                result = a - b;
-                break;
+                return a - b;
             case '*':
-                result = a * b;
-                break;
+                return a * b;
             case '/':
                 if (b == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    result = (double) a / b;
+                    return 0;
                 }
-                break;
+                return (double) a / b;
             case '%':
                 if (b == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    result = a % b;
+                    return 0;
                 }
-                break;
+                return a % b;
             case '^':
-                result = 1.0;
-
-                if (b >= 0) {
-                    for (int i = 0; i < b; i++) {
-                        result *= a;
-                    }
-                } else {
-                    for (int i = 0; i < -b; i++) {
-                        result *= a;
-                    }
+                double result = 1.0;
+                int count = b;
+                if (b < 0) {
+                    count = -b;
+                }
+                for (int i = 0; i < count; i++) {
+                    result *= a;
+                }
+                if (b < 0) {
                     result = 1.0 / result;
                 }
-                break;
+                return result;
             default:
                 System.out.println("Ошибка: операция '" + operator + "' не поддерживается");
+                return 0;
         }
-
-        return result;
     }
 }

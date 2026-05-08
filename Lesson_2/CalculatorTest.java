@@ -5,7 +5,9 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
-        while (true) {
+        String answer = "yes";
+
+        while (answer.equals("yes") || answer.equals("YES")) {
             System.out.print("Введите первое число: ");
             int a = scanner.nextInt();
 
@@ -19,19 +21,17 @@ public class CalculatorTest {
 
             System.out.println(a + " " + operator + " " + b + " = " + result);
 
-            while (true) {
-                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                String answer = scanner.next();
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            answer = scanner.next();
 
-                if (answer.equals("yes") || answer.equals("YES")) {
-                    break;
-                } else if (answer.equals("no") || answer.equals("NO")) {
-                    System.out.println("Программа завершена");
-                    return;
-                } else {
-                    System.out.println("Введите yes или no");
-                }
+            while (!(answer.equals("yes") || answer.equals("YES") ||
+                     answer.equals("no") || answer.equals("NO"))) {
+                System.out.println("Введите yes или no");
+                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+                answer = scanner.next();
             }
         }
+
+        System.out.println("Программа завершена");
     }
 }
