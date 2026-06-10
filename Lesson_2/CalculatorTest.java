@@ -7,7 +7,7 @@ public class CalculatorTest {
 
         String answer = "yes";
 
-        while (answer.equals("yes") || answer.equals("YES")) {
+        while (answer.equals("yes")) {
             System.out.print("Введите первое число: ");
             int a = scanner.nextInt();
 
@@ -19,19 +19,30 @@ public class CalculatorTest {
 
             double result = calculator.calculate(a, operator, b);
 
-            System.out.println(a + " " + operator + " " + b + " = " + result);
+            printResult(a, operator, b, result);
 
-            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-            answer = scanner.next();
-
-            while (!(answer.equals("yes") || answer.equals("YES") ||
-                     answer.equals("no") || answer.equals("NO"))) {
-                System.out.println("Введите yes или no");
-                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                answer = scanner.next();
-            }
+            answer = askToContinue(scanner);
         }
 
         System.out.println("Программа завершена");
+    }
+
+    private static void printResult(int a, char operator, int b, double result) {
+        System.out.println(a + " " + operator + " " + b + " = " + result);
+    }
+
+    private static String askToContinue(Scanner scanner) {
+        String answer = "";
+
+        while (!answer.equals("yes") && !answer.equals("no")) {
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            answer = scanner.next().toLowerCase();
+
+            if (!answer.equals("yes") && !answer.equals("no")) {
+                System.out.println("Введите yes или no");
+            }
+        }
+
+        return answer;
     }
 }
